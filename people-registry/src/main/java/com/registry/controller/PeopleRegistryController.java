@@ -31,13 +31,13 @@ public class PeopleRegistryController {
 
 
     @GetMapping(value="/retrievePerson",produces = MediaType.APPLICATION_JSON_VALUE)
-    public Person retrievePerson(@RequestParam long personalNum) throws Exception
+    public Person retrievePerson(@PathVariable long personalNum) throws Exception
     {
          return personDao.getPerson(personalNum);
     }
 
     @GetMapping(value="/retrieveOldestChild",produces = MediaType.APPLICATION_JSON_VALUE)
-    public OldestChild retrieveOldestChild(@RequestParam long personalNum)
+    public OldestChild retrieveOldestChild(@PathVariable long personalNum)
     {
         Child child=personDao.getOldestChild(personalNum);
         OldestChild oldestChild= new OldestChild();
